@@ -1,3 +1,45 @@
-<p>
-  display works!
-</p>
+<div class="example-container mat-elevation-z1">
+  <mat-table #table [dataSource]="dataSource" matSort>
+
+
+    <!-- Namn Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Namn</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.Namn}}</mat-cell>
+    </ng-container>
+
+    <!-- PrisInklMoms Column -->
+    <ng-container matColumnDef="price">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Pris(kr)</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.Prisinklmoms}}</mat-cell>
+    </ng-container>
+
+    <!-- Volymiml Column -->
+    <ng-container matColumnDef="volume">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Volym(ml)</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.Volymiml}}</mat-cell>
+    </ng-container>
+
+    <!-- Alkoholhalt Column -->
+    <ng-container matColumnDef="alcohol">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Alkoholhalt</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.Alkoholhalt}}</mat-cell>
+    </ng-container>
+
+
+    <!-- APK Column -->
+    <ng-container matColumnDef="apk">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> APK</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.apk}}</mat-cell>
+    </ng-container>
+
+    <!-- Varugrupp Column -->
+    <ng-container matColumnDef="category">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Varugrupp</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.Varugrupp}}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

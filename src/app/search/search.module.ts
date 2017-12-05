@@ -3,7 +3,10 @@ import {CommonModule} from '@angular/common';
 import {FilterComponent} from './filter/filter.component';
 import {DisplayComponent} from './display/display.component';
 import {SearchComponent} from './search.component';
-import {MatSidenavModule, MatIconModule, MatButtonModule, MatInputModule, MatFormFieldModule, MatSelectModule} from '@angular/material';
+import {
+  MatSidenavModule, MatIconModule, MatButtonModule, MatInputModule, MatFormFieldModule, MatSelectModule,
+  MatTableModule
+} from '@angular/material';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {ProductsService} from './products.service';
@@ -18,6 +21,7 @@ import {ProductsService} from './products.service';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    MatTableModule,
     MatSelectModule
   ],
   declarations: [SearchComponent, FilterComponent, DisplayComponent],
