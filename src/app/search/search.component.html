@@ -1,2 +1,14 @@
-<app-filter></app-filter>
-<app-display></app-display>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav role="filter">
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <app-filter></app-filter>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <app-display></app-display>
+  </mat-sidenav-content>
+</mat-sidenav-container>
