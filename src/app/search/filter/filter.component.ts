@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import {ProductsService} from '../products.service';
+import {Filter} from './../filter';
 
 @Component({
   selector: 'app-filter',
@@ -9,7 +11,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 export class FilterComponent implements OnInit {
   filterForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private products: ProductsService) {
     this.createForm();
   }
 
@@ -19,7 +21,7 @@ export class FilterComponent implements OnInit {
 
   onChanges(): void {
     this.filterForm.valueChanges.subscribe(val => {
-      console.log(val);
+      this.products.requestProducts(val);
     });
   }
 

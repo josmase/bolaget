@@ -5,11 +5,14 @@ import {DisplayComponent} from './display/display.component';
 import {SearchComponent} from './search.component';
 import {MatSidenavModule, MatIconModule, MatButtonModule, MatInputModule, MatFormFieldModule, MatSelectModule} from '@angular/material';
 import {ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {ProductsService} from './products.service';
 
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    HttpClientModule,
     MatSidenavModule,
     MatIconModule,
     MatButtonModule,
@@ -18,7 +21,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     MatSelectModule
   ],
   declarations: [SearchComponent, FilterComponent, DisplayComponent],
-  exports: [SearchComponent]
+  exports: [SearchComponent],
+  providers: [ProductsService]
 })
 export class SearchModule {
 }
