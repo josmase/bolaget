@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {ProductsService} from '../products.service';
-import {Filter} from './../filter';
 
 @Component({
   selector: 'app-filter',
@@ -17,14 +16,21 @@ export class FilterComponent implements OnInit {
 
   ngOnInit() {
     this.onChanges();
+    this.products.requestProducts(this.filterForm.getRawValue());
   }
 
+  /**
+   * Subscribes to changes in the form and performs a product request when it happens.
+   */
   onChanges(): void {
     this.filterForm.valueChanges.subscribe(val => {
       this.products.requestProducts(val);
     });
   }
 
+  /**
+   * Creates a form using formBuilder. The form matches the filter interface.
+   */
   private createForm() {
     this.filterForm = this.formBuilder.group({
       price: this.formBuilder.group({
