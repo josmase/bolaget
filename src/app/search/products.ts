@@ -1,0 +1,31 @@
+export interface Products {
+  Alkoholhalt: number;
+  Argang: number;
+  Artikelid: number;
+  Ekologisk: number;
+  Etiskt: number;
+  Forpackning: string;
+  Forslutning: string;
+  Koscher: number;
+  Leverantor: string;
+  Namn: string;
+  Namn2: string;
+  Pant: number;
+  PrisPerLiter: number;
+  Prisinklmoms: number;
+  Producent: string;
+  Provadargang: string;
+  RavarorBeskrivning: string;
+  Saljstart: string;
+  Sortiment: string;
+  Stil: string;
+  Typ: string;
+  Ursprung: string;
+  Ursprunglandnamn: string;
+  Utgått: string;
+  Varnummer: number;
+  Varugrupp: string;
+  Volymiml: number;
+  apk: number;
+  changed_timestamp: string;
+}
