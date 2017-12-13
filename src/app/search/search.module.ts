@@ -5,7 +5,7 @@ import {DisplayComponent} from './display/display.component';
 import {SearchComponent} from './search.component';
 import {
   MatSidenavModule, MatIconModule, MatButtonModule, MatInputModule, MatFormFieldModule, MatSelectModule,
-  MatTableModule, MatSortModule
+  MatTableModule, MatSortModule, MatCardModule
 } from '@angular/material';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
@@ -23,7 +23,8 @@ import {ProductsService} from './products.service';
     MatInputModule,
     MatTableModule,
     MatSortModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCardModule
   ],
   declarations: [SearchComponent, FilterComponent, DisplayComponent],
   exports: [SearchComponent],

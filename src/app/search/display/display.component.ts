@@ -46,4 +46,8 @@ export class DisplayComponent implements OnInit, AfterViewInit {
       this.dataSource = new MatTableDataSource<Products>(this.products);
     });
   }
+
+  info(row) {
+    console.log(row);
+  }
 }

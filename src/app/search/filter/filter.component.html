@@ -1,6 +1,6 @@
 <form [formGroup]="filterForm">
 
-  <div formGroupName="price">
+  <div formGroupName="price" class="formGroup">
     <h3 class="mat-title">Pris</h3>
     <mat-form-field>
       <input type="number" matInput placeholder="Min pris" formControlName="min"/>
@@ -11,7 +11,7 @@
     </mat-form-field>
   </div>
 
-  <div formGroupName="apk">
+  <div formGroupName="apk" class="formGroup">
     <h3 class="mat-title">APK</h3>
     <mat-form-field>
       <input type="number" matInput placeholder="Min APK" formControlName="min"/>
@@ -22,7 +22,7 @@
     </mat-form-field>
   </div>
 
-  <div formGroupName="alcohol">
+  <div formGroupName="alcohol" class="formGroup">
     <h3 class="mat-title">Alkoholhalt</h3>
     <mat-form-field>
       <input type="number" matInput placeholder="Min Alkoholhalt" formControlName="min"/>
@@ -32,7 +32,7 @@
       <input type="number" matInput placeholder="Max Alkoholhalt" formControlName="max"/>
     </mat-form-field>
   </div>
-  <div>
+  <div class="formGroup">
     <h3 class="mat-title">Annat</h3>
     <mat-form-field>
       <input type="text" matInput placeholder="Namn" formControlName="name"/>

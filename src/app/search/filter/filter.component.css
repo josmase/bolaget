@@ -1,0 +1,9 @@
+form {
+  display: flex;
+  flex-flow: row wrap;;
+  justify-content: space-around;
+}
+
+.formGroup {
+  flex: 1 0 45%;
+}

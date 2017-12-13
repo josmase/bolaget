@@ -1,4 +1,4 @@
-<div class="example-container mat-elevation-z1">
+<div class="tableContainer mat-elevation-z2">
   <mat-table #table [dataSource]="dataSource" matSort>
 
 
@@ -10,13 +10,13 @@
 
     <!-- PrisInklMoms Column -->
     <ng-container matColumnDef="price">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Pris(kr)</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Pris (kr)</mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.Prisinklmoms}}</mat-cell>
     </ng-container>
 
     <!-- Volymiml Column -->
     <ng-container matColumnDef="volume">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Volym(ml)</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Volym (ml)</mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.Volymiml}}</mat-cell>
     </ng-container>
 
@@ -40,6 +40,10 @@
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="info(row)">
+      <mat-card [class.visible]="row.show">
+        <p>asd</p>
+      </mat-card>
+    </mat-row>
   </mat-table>
 </div>
