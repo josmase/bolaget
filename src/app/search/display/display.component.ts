@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {ProductsService} from '../products.service';
-import {MatTableDataSource, MatSort} from '@angular/material';
+import {MatTableDataSource, MatSort, MatPaginator} from '@angular/material';
 import {Products} from '../products';
 
 @Component({
@@ -9,10 +9,12 @@ import {Products} from '../products';
   styleUrls: ['./display.component.css']
 })
 export class DisplayComponent implements OnInit, AfterViewInit {
-  public products;
+  public products: Products[];
   public displayedColumns: string[];
   public dataSource: MatTableDataSource<Products>;
   @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
 
   /**
    * Initializes the component and registers it for events from productService
@@ -33,7 +35,9 @@ export class DisplayComponent implements OnInit, AfterViewInit {
    * be able to query its view for the initialized sort.
    */
   ngAfterViewInit() {
+    this.sort.start = 'desc';
     this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
 
   /**
@@ -42,12 +46,7 @@ export class DisplayComponent implements OnInit, AfterViewInit {
   private addListener() {
     this.productsService.list1Event.subscribe(data => {
       this.products = data;
-      console.log(data[0]);
-      this.dataSource = new MatTableDataSource<Products>(this.products);
+      this.dataSource.data = this.products;
     });
-  }
-
-  info(row) {
-    console.log(row);
   }
 }
