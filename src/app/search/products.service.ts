@@ -57,6 +57,6 @@ export class ProductsService {
    * @returns {HttpParams} The param after either appending or not appending.
    */
   private addIfValue(params: HttpParams, value: any, key: string) {
-    return value === null ? params : params.append(key, value);
+    return value === null || value === undefined ? params : params.append(key, value);
   }
 }
