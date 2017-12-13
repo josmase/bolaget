@@ -1,7 +1,3 @@
 .tableContainer {
   margin: 15px;
 }
-
-mat-row:hover {
-  background: #eee;
-}
