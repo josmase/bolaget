@@ -10,6 +10,7 @@ import {
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {ProductsService} from './products.service';
+import {OrderByPipe} from './order-by.pipe';
 
 @NgModule({
   imports: [
@@ -27,7 +28,7 @@ import {ProductsService} from './products.service';
     MatSelectModule,
     MatCardModule
   ],
-  declarations: [SearchComponent, FilterComponent, DisplayComponent],
+  declarations: [SearchComponent, FilterComponent, DisplayComponent, OrderByPipe],
   exports: [SearchComponent],
   providers: [ProductsService]
 })
