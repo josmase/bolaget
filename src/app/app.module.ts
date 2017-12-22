@@ -21,6 +21,7 @@ import {OrderByPipe} from './search/order-by.pipe';
 import {SearchComponent} from './search/search.component';
 import {FilterComponent} from './search/filter/filter.component';
 import {DisplayComponent} from './search/display/display.component';
+import {AppRoutingModule} from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import {DisplayComponent} from './search/display/display.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    AppRoutingModule,
     MatToolbarModule,
     ReactiveFormsModule,
     HttpClientModule,
