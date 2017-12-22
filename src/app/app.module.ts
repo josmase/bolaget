@@ -6,22 +6,50 @@ import {ServiceWorkerModule} from '@angular/service-worker';
 import {AppComponent} from './app.component';
 
 import {environment} from '../environments/environment';
-import {SearchModule} from './search/search.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatToolbarModule} from '@angular/material';
+import {
+  MatButtonModule, MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule, MatPaginatorModule, MatSelectModule, MatSidenavModule,
+  MatSortModule,
+  MatTableModule,
+  MatToolbarModule
+} from '@angular/material';
+import {ReactiveFormsModule} from '@angular/forms';
+
+import {HttpClientModule} from '@angular/common/http';
+import {ProductsService} from './search/products.service';
+import {OrderByPipe} from './search/order-by.pipe';
+import {SearchComponent} from './search/search.component';
+import {FilterComponent} from './search/filter/filter.component';
+import {DisplayComponent} from './search/display/display.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SearchComponent,
+    FilterComponent,
+    DisplayComponent,
+    OrderByPipe
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    SearchModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatSelectModule,
+    MatCardModule,
     ServiceWorkerModule.register('/ngsw-worker.js', {scope: '/angular/', enabled: environment.production})
   ],
-  providers: [],
+  exports: [SearchComponent],
+  providers: [ProductsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
