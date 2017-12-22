@@ -22,6 +22,7 @@ import {SearchComponent} from './search/search.component';
 import {FilterComponent} from './search/filter/filter.component';
 import {DisplayComponent} from './search/display/display.component';
 import {AppRoutingModule} from './app-routing.module';
+import {ProductComponent} from './product/product.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import {AppRoutingModule} from './app-routing.module';
     SearchComponent,
     FilterComponent,
     DisplayComponent,
+    ProductComponent,
     OrderByPipe
   ],
   imports: [
