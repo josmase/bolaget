@@ -5,7 +5,7 @@
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Namn</mat-header-cell>
       <mat-cell *matCellDef="let element">
-        <a href="http://www.systembolaget.se/sok-dryck?searchquery={{element.Varnummer}}&fullassortment=1">{{element.Namn}}</a>
+        <a routerLink="/product/{{element.Artikelid}}">{{element.Namn}}</a>
       </mat-cell>
     </ng-container>
 
