@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {ProductsService} from '../products.service';
 import {MatTableDataSource, MatSort, MatPaginator} from '@angular/material';
-import {Products} from '../product';
+import {Product} from '../product';
 
 @Component({
   selector: 'app-display',
@@ -9,9 +9,9 @@ import {Products} from '../product';
   styleUrls: ['./display.component.css']
 })
 export class DisplayComponent implements OnInit, AfterViewInit {
-  public products: Products[];
+  public products: Product[];
   public displayedColumns: string[];
-  public dataSource: MatTableDataSource<Products>;
+  public dataSource: MatTableDataSource<Product>;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -26,7 +26,7 @@ export class DisplayComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.displayedColumns = ['name', 'price', 'volume', 'alcohol', 'apk', 'category'];
-    this.dataSource = new MatTableDataSource<Products>(this.products);
+    this.dataSource = new MatTableDataSource<Product>(this.products);
   }
 
 

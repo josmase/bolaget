@@ -1,10 +1,11 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {Filter} from './filter';
+import {Product} from './product';
 
 @Injectable()
 export class ProductsService {
-  private products: any;
+  private products: Product[];
   private apiUrl: string;
   list1Event: EventEmitter<any> = new EventEmitter();
 
@@ -17,7 +18,7 @@ export class ProductsService {
    * @param {Filter} options The options to use for the request.
    */
   requestProducts(options: Filter) {
-    this.http.get(this.createUrl(options)).subscribe(data => {
+    this.http.get<Product[]>(this.createUrl(options)).subscribe(data => {
       this.products = data;
       this.list1Event.emit(data);
     });
@@ -28,8 +29,8 @@ export class ProductsService {
    * @param {Number} id The id to search for.
    * @returns {Promise<any>} Promise from the http request.
    */
-  requestProduct(id: Number): Promise<any> {
-    return this.http.get(this.apiUrl + '/product/' + id).toPromise();
+  requestProduct(id: Number): Promise<Product[]> {
+    return this.http.get<Product[]>(this.apiUrl + '/product/' + id).toPromise();
   }
 
   /**
@@ -45,7 +46,7 @@ export class ProductsService {
    * @param {Number} id The article id of the product to find
    * @returns {null} If there are no products.
    */
-  getProduct(id: Number) {
+  getProduct(id: Number): Product[] {
     if (this.products !== undefined && this.products !== null) {
       return this.products.filter(product => product.Artikelid === id);
     }
