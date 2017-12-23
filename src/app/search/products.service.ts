@@ -4,7 +4,7 @@ import {Filter} from './filter';
 
 @Injectable()
 export class ProductsService {
-  private products: Object;
+  private products: any;
   private apiUrl: string;
   list1Event: EventEmitter<any> = new EventEmitter();
 
@@ -23,12 +23,28 @@ export class ProductsService {
     });
   }
 
+  requestProduct(id: Number): Promise<any> {
+    return this.http.get(this.apiUrl + '/product/' + id).toPromise();
+  }
+
   /**
    * Return the latest products.
    * @returns {Object} The latest products. Might not have been initialized.
    */
   getProducts() {
     return this.products;
+  }
+
+  /**Gets the product with the matching article id
+   *
+   * @param {Number} id The article id of the product to find
+   * @returns {null} If there are no products.
+   */
+  getProduct(id: Number) {
+    if (this.products !== undefined && this.products !== null) {
+      return this.products.filter(product => product.Artikelid === id);
+    }
+    return null;
   }
 
   /**
@@ -59,4 +75,6 @@ export class ProductsService {
   private addIfValue(params: HttpParams, value: any, key: string) {
     return value === null || value === undefined ? params : params.append(key, value);
   }
+
+
 }
