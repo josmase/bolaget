@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {ProductsService} from '../products.service';
 import {MatTableDataSource, MatSort, MatPaginator} from '@angular/material';
-import {Products} from '../products';
+import {Products} from '../product';
 
 @Component({
   selector: 'app-display',
