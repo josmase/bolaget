@@ -23,6 +23,7 @@ import {FilterComponent} from './search/filter/filter.component';
 import {DisplayComponent} from './search/display/display.component';
 import {AppRoutingModule} from './app-routing.module';
 import {ProductComponent} from './product/product.component';
+import {ToUrlPipe} from './product/to-url.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {ProductComponent} from './product/product.component';
     FilterComponent,
     DisplayComponent,
     ProductComponent,
-    OrderByPipe
+    OrderByPipe,
+    ToUrlPipe
   ],
   imports: [
     BrowserModule,

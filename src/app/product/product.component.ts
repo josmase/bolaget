@@ -17,7 +17,7 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       const id = parseInt(params['id'], 10);
-      this.getProduct(id);
+      this.getProduct(id).then(data => this.product = data[0]);
     });
   }
 
@@ -25,13 +25,12 @@ export class ProductComponent implements OnInit {
    * Gets the product either from aöready retrived data or by making a new request for data.
    * @param {Number} id The id to find.
    */
-  private getProduct(id: Number) {
-    this.product = this.productsService.getProduct(id);
-    if (this.product === undefined || this.product === null) {
-      this.productsService.requestProduct(id).then(data => {
-        this.product = data;
-      });
+  private async getProduct(id: Number) {
+    let product = this.productsService.getProduct(id);
+    if (product === undefined || product === null) {
+      product = await this.productsService.requestProduct(id);
     }
+    return product;
   }
 
 }
