@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductsService} from '../search/products.service';
 import {ActivatedRoute} from '@angular/router';
+import {Product} from '../search/product';
 
 @Component({
   selector: 'app-product',
@@ -9,7 +10,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class ProductComponent implements OnInit {
   private sub: any;
-  private product;
+  public product: Product;
 
   constructor(private route: ActivatedRoute, private productsService: ProductsService) {
   }
@@ -22,10 +23,10 @@ export class ProductComponent implements OnInit {
   }
 
   /**
-   * Gets the product either from aöready retrived data or by making a new request for data.
+   * Gets the product either from already retrieved data or by making a new request for data.
    * @param {Number} id The id to find.
    */
-  private async getProduct(id: Number) {
+  private async getProduct(id: Number): Promise<Product[]> {
     let product = this.productsService.getProduct(id);
     if (product === undefined || product === null) {
       product = await this.productsService.requestProduct(id);
