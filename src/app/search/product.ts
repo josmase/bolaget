@@ -1,4 +1,4 @@
-export interface Products {
+export interface Product {
   Alkoholhalt: number;
   Argang: number;
   Artikelid: number;
