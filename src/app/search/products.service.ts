@@ -23,6 +23,11 @@ export class ProductsService {
     });
   }
 
+  /**
+   * perform a http request to get the product matching the id.
+   * @param {Number} id The id to search for.
+   * @returns {Promise<any>} Promise from the http request.
+   */
   requestProduct(id: Number): Promise<any> {
     return this.http.get(this.apiUrl + '/product/' + id).toPromise();
   }
