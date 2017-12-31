@@ -1,0 +1,13 @@
+ul {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+li p {
+  display: inline-block;
+}
+
+li p:first-child {
+  min-width: 100px;
+}

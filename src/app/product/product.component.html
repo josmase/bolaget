@@ -1,8 +1,90 @@
 <mat-card *ngIf="product">
   <mat-card-title>{{product.Namn}}</mat-card-title>
   <mat-card-subtitle *ngIf="product.Namn2">{{product.Namn2}}</mat-card-subtitle>
-  <mat-card-content>{{product | json}}</mat-card-content>
+  <mat-card-content>
+    {{product.Varugrupp}}
+    <span *ngIf="product.Typ"> av typen {{product.Typ}}</span>
+    <span *ngIf="product.Stil"> med en {{product.Stil}} stil</span>
+    <span *ngIf="product.RavarorBeskrivning"> och gjord på {{product.RavarorBeskrivning}}</span>
+    <span *ngIf="product.Ursprunglandnamn">
+      <span *ngIf="!product.RavarorBeskrivning">. </span>
+      {{product.Namn}} har sitt ursprung i {{product.Ursprunglandnamn}}
+      <span *ngIf="product.Ursprung"> och kommer från {{product.Ursprung}}</span>
+    </span>
+    . Med ett pris på {{product.Prisinklmoms}}Kr och en alkoholhalt på {{product.Alkoholhalt}}% samt en volym på
+    {{product.Volymiml}}ml får produkten ett APK-värde på {{product.apk}}.
+  </mat-card-content>
+  <mat-card-content class="mat-typography">
+    <h3>Detaljer</h3>
+    <ul>
+      <li>
+        <p>Pris</p>
+        <p>{{product.Prisinklmoms}} Kr</p>
+      </li>
+      <li>
+        <p>Apk</p>
+        <p>{{product.apk}}</p>
+      </li>
+      <li>
+        <p>Alkoholhalt</p>
+        <p>{{product.Alkoholhalt}}%</p>
+      </li>
+      <li>
+        <p>Volym</p>
+        <p>{{product.Volymiml}} ml</p>
+      </li>
+      <li>
+        <p>Varugrupp</p>
+        <p>{{product.Varugrupp}}</p>
+      </li>
+      <li *ngIf="product.Typ">
+        <p>Typ</p>
+        <p>{{product.Typ}}</p>
+      </li>
+      <li *ngIf="product.Stil">
+        <p>Stil</p>
+        <p>{{product.Stil}}</p>
+      </li>
+      <li *ngIf="product.RavarorBeskrivning">
+        <p>Råvaror</p>
+        <p>{{product.RavarorBeskrivning}}</p>
+      </li>
+      <li *ngIf="product.Argang">
+        <p>Årgång</p>
+        <p>{{product.Argang}}</p>
+      </li>
+      <li>
+        <p>Producent</p>
+        <p>{{product.Producent}}</p>
+      </li>
+      <li>
+        <p>Leverantör</p>
+        <p>{{product.Leverantor}}</p>
+      </li>
+      <li>
+        <p>Ursprung</p>
+        <p>{{product.Ursprunglandnamn}}</p>
+      </li>
+      <li *ngIf="product.Forslutning">
+        <p>Förslutning</p>
+        <p>{{product.Forslutning}}</p>
+      </li>
+      <li>
+        <p>Förpackning</p>
+        <p>{{product.Forpackning}}</p>
+      </li>
+      <li>
+        <p>Varunummer</p>
+        <p>{{product.Varnummer}}</p>
+      </li>
+      <li>
+        <p>Uppdaterad</p>
+        <p>{{product.changed_timestamp | date: 'dd/MM/yyyy'}}</p>
+      </li>
+    </ul>
+  </mat-card-content>
+
   <mat-card-actions>
-    <a href="" mat-raised-button>Systembolaget</a>
+    <a href="{{product | toUrl}}" mat-raised-button color="primary">Systembolaget</a>
   </mat-card-actions>
 </mat-card>
