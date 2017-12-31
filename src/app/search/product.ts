@@ -24,6 +24,7 @@ export interface Product {
   Ursprunglandnamn: string;
   Utgått: string;
   Varnummer: number;
+  nr: number;
   Varugrupp: string;
   Volymiml: number;
   apk: number;
