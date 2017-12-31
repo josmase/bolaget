@@ -9,6 +9,7 @@ import {environment} from '../environments/environment';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
   MatButtonModule, MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule, MatPaginatorModule, MatSelectModule, MatSidenavModule,
+  MatSnackBarModule,
   MatSortModule,
   MatTableModule,
   MatToolbarModule
@@ -52,6 +53,7 @@ import {ToUrlPipe} from './product/to-url.pipe';
     MatSortModule,
     MatSelectModule,
     MatCardModule,
+    MatSnackBarModule,
     ServiceWorkerModule.register('/ngsw-worker.js', {scope: '/angular/', enabled: environment.production})
   ],
   exports: [SearchComponent],
