@@ -16,12 +16,16 @@ export class ProductsService {
   /**
    * Performs a http request to get products matching the options. When done it emits a event to all listeners.
    * @param {Filter} options The options to use for the request.
+   * @returns {Promise<any>} On succes a array of products. Otherwise some form of error message.
    */
-  requestProducts(options: Filter) {
-    this.http.get<Product[]>(this.createUrl(options)).subscribe(data => {
-      this.products = data;
-      this.list1Event.emit(data);
-    });
+  requestProducts(options: Filter): Promise<any> {
+    return new Promise((resolve, reject) =>
+      this.http.get<Product[]>(this.createUrl(options)).subscribe(data => {
+        this.products = data;
+        this.list1Event.emit(data);
+        resolve(data);
+      }, err => reject(err))
+    );
   }
 
   /**
