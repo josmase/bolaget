@@ -22,7 +22,7 @@ export class FilterComponent implements OnInit {
     this.onChanges();
     this.loading = true;
     this.products.requestProducts(this.filterForm.getRawValue())
-      .then(() => this.loading = false)
+      .then(() => this.successHandler())
       .catch(() => this.errorHandler());
     this.categories = [
       {value: 'Sprit', name: 'Sprit'},
@@ -49,7 +49,7 @@ export class FilterComponent implements OnInit {
     this.filterForm.valueChanges.subscribe(val => {
       this.loading = true;
       this.products.requestProducts(val)
-        .then(() => this.loading = false)
+        .then(() => this.successHandler())
         .catch(() => this.errorHandler());
     });
   }
@@ -60,6 +60,14 @@ export class FilterComponent implements OnInit {
   private errorHandler() {
     this.loading = false;
     this.snackBar.open('Kunde inte hämta produkter');
+  }
+
+  /**
+   * Sets loading to false and opens a snack bar with success message.
+   */
+  private successHandler() {
+    this.loading = false;
+    this.snackBar.open('Sökning klar', null, {duration: 1000});
   }
 
   /**

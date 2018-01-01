@@ -18,10 +18,9 @@ export class DisplayComponent implements OnInit, AfterViewInit {
 
   /**
    * Initializes the component and registers it for events from productService
-   * @param {MatSnackBar} snackBar
    * @param {ProductsService} productsService
    */
-  constructor(private snackBar: MatSnackBar, private productsService: ProductsService) {
+  constructor(private productsService: ProductsService) {
     this.addListener();
   }
 
@@ -48,7 +47,6 @@ export class DisplayComponent implements OnInit, AfterViewInit {
     this.productsService.list1Event.subscribe(data => {
       this.products = data;
       this.dataSource.data = this.products;
-      this.snackBar.open('Sökning klar', null, {duration: 1000});
     });
   }
 }
