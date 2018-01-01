@@ -59,7 +59,7 @@ export class FilterComponent implements OnInit {
    */
   private errorHandler() {
     this.loading = false;
-    this.snackBar.open('Kunde inte hämta produkter');
+    this.snackBar.open('Kunde inte hämta produkter', null, {duration: 1000});
   }
 
   /**
