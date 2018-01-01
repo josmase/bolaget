@@ -59,7 +59,7 @@ export class FilterComponent implements OnInit {
    */
   private errorHandler() {
     this.loading = false;
-    this.snackBar.open('Kunde inte hämta produkter', null, {duration: 1000});
+    this.snackBar.open('Kunde inte hämta produkter', null, {duration: 3000});
   }
 
   /**
@@ -67,7 +67,7 @@ export class FilterComponent implements OnInit {
    */
   private successHandler() {
     this.loading = false;
-    this.snackBar.open('Sökning klar', null, {duration: 1000});
+    this.snackBar.open('Sökning klar', null, {duration: 3000});
   }
 
   /**
