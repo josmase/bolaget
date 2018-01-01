@@ -4,8 +4,8 @@ import {SearchComponent} from './search/search.component';
 import {ProductComponent} from './product/product.component';
 
 const routes: Routes = [
-  {path: '', component: SearchComponent},
-  {path: 'product/:id', component: ProductComponent},
+  {path: '', component: SearchComponent, data: {animation: 'search'}},
+  {path: 'product/:id', component: ProductComponent, data: {animation: 'product'}},
 ];
 
 @NgModule({
