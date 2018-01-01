@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {ProductsService} from '../products.service';
+import {MatSnackBar} from '@angular/material';
 
 
 @Component({
@@ -10,16 +11,21 @@ import {ProductsService} from '../products.service';
 })
 export class FilterComponent implements OnInit {
   filterForm: FormGroup;
+  public loading: Boolean;
   categories: any[];
 
-  constructor(private formBuilder: FormBuilder, private products: ProductsService) {
+  constructor(private formBuilder: FormBuilder, private products: ProductsService, private snackBar: MatSnackBar) {
     this.createForm();
   }
 
   ngOnInit() {
     this.onChanges();
-    this.products.requestProducts(this.filterForm.getRawValue());
-    this.categories = [{value: 'Sprit', name: 'Sprit'},
+    this.loading = true;
+    this.products.requestProducts(this.filterForm.getRawValue())
+      .then(() => this.loading = false)
+      .catch(() => this.errorHandler());
+    this.categories = [
+      {value: 'Sprit', name: 'Sprit'},
       {value: 'Öl', name: 'Öl'},
       {value: 'Whisky', name: 'Whisky'},
       {value: 'Cider', name: 'Cider'},
@@ -41,8 +47,19 @@ export class FilterComponent implements OnInit {
    */
   onChanges(): void {
     this.filterForm.valueChanges.subscribe(val => {
-      this.products.requestProducts(val);
+      this.loading = true;
+      this.products.requestProducts(val)
+        .then(() => this.loading = false)
+        .catch(() => this.errorHandler());
     });
+  }
+
+  /**
+   * sets loading to false and opens a snack bar message.
+   */
+  private errorHandler() {
+    this.loading = false;
+    this.snackBar.open('Kunde inte hämta produkter');
   }
 
   /**
