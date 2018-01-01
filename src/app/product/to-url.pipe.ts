@@ -20,7 +20,7 @@ export class ToUrlPipe implements PipeTransform {
    * @returns {string} Formatted string.
    */
   private formatString(s: String) {
-    return this.replaceSwedishChars(s.toLowerCase().replace(' ', '-'));
+    return this.replaceSwedishChars(s.toLowerCase().replace(/ /g, '-'));
   }
 
   /**
@@ -29,7 +29,7 @@ export class ToUrlPipe implements PipeTransform {
    * @returns {string} String with å,ä,ö replaced.
    */
   private replaceSwedishChars(s: String) {
-    return s.replace('å', 'a').replace('Ä', 'a').replace('ö', 'o');
+    return s.replace(/å/g, 'a').replace(/ä/g, 'a').replace(/ö/g, 'o');
   }
 
 }
