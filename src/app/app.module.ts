@@ -56,7 +56,7 @@ import {ToUrlPipe} from './product/to-url.pipe';
     MatCardModule,
     MatSnackBarModule,
     MatProgressBarModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', {scope: '/angular/', enabled: environment.production})
+    ServiceWorkerModule.register('/ngsw-worker.js', {scope: '/', enabled: environment.production})
   ],
   exports: [SearchComponent],
   providers: [ProductsService],
