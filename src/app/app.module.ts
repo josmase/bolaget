@@ -8,8 +8,15 @@ import {AppComponent} from './app.component';
 import {environment} from '../environments/environment';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
-  MatButtonModule, MatCardModule, MatFormFieldModule, MatIconModule, MatInputModule, MatPaginatorModule, MatProgressBarModule,
-  MatSelectModule, MatSidenavModule,
+  MatButtonModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatSelectModule,
+  MatSidenavModule,
   MatSnackBarModule,
   MatSortModule,
   MatTableModule,
@@ -56,7 +63,7 @@ import {ToUrlPipe} from './product/to-url.pipe';
     MatCardModule,
     MatSnackBarModule,
     MatProgressBarModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', {scope: '/angular/', enabled: environment.production})
+    ServiceWorkerModule.register('/ngsw-worker.js', {scope: '/', enabled: environment.production})
   ],
   exports: [SearchComponent],
   providers: [ProductsService],
