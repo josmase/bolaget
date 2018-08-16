@@ -6,12 +6,12 @@
     "resources": {
       "files": [
         "/assets/favicons/favicon.ico",
-        "/index.html"
-      ],
-      "versionedFiles": [
-        "/*.bundle.css",
-        "/*.bundle.js",
-        "/*.chunk.js"
+        "/index.html",
+        "/styles.*.css",
+        "/runtime.*.js",
+        "/main.*.js",
+        "/polyfills.*.js",
+        "/*"
       ]
     }
   }, {

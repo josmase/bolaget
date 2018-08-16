@@ -4,4 +4,23 @@
 body {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+mat-card.mat-card form{
+  margin-right: 0;
+}
+
+@media only screen and (max-width:425px){
+  .mat-card .formGroup[_ngcontent-c5]{
+    margin-right: 0;
+  }
+  .formGroup, mat-form-field{
+    width: 50%;
+  }  
+}
+@media only screen and (max-width:270px){
+  .formGroup, mat-form-field{
+    width: 100%;
+  }  
 }
