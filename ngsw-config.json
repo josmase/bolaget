@@ -23,5 +23,19 @@
         "/assets/**"
       ]
     }
-  }]
+  }
+  ],
+  "dataGroups": [
+    {
+      "name": "api-performance",
+      "urls": [
+        "https://api.tjenixen.se/systemet"
+      ],
+      "cacheConfig": {
+        "strategy": "performance",
+        "maxSize": 100,
+        "maxAge": "3d"
+      }
+    }
+  ]
 }
