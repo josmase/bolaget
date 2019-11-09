@@ -10,7 +10,7 @@ export class ProductsService {
   list1Event: EventEmitter<any> = new EventEmitter();
 
   constructor(private http: HttpClient) {
-    this.apiUrl = 'https://api.tjenixen.se/systemet';
+    this.apiUrl = 'https://api.hejsan.xyz/systemet';
   }
 
   /**
